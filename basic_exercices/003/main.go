@@ -2,6 +2,13 @@
 
 package main
 
+import "fmt"
+
 func main() {
 	// Here goes your code
+	helloworld :=  "Hello World!"
+	var helloWorld string
+	helloWorld = "Hello World!"
+	fmt.Println(helloworld)
+	fmt.Println(helloWorld)
 }

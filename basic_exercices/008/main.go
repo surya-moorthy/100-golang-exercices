@@ -6,5 +6,8 @@ import "fmt"
 
 func main () {
 	// Here goes your code
-	fmt.Printf("...")
+	var array = [5]string{"Alice","Bob","","",""}
+	array_1 := array[0]
+	array_2 := array[1]
+	fmt.Printf("first on : %s \nand the second one : %s",array_1,array_2)
 }

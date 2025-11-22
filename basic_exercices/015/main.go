@@ -8,5 +8,11 @@ import "fmt"
 
 func main () {
 	// Here goes your code
-	fmt.Printf("...")
+	var num int
+    fmt.Scanf("%d",num)
+	if num%2 != 0 {
+		fmt.Print("it is odd")
+	}else {
+		fmt.Print("it is even")
+	}
 }

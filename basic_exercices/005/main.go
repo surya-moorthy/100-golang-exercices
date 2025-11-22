@@ -20,5 +20,10 @@ func main () {
 	weight = 70.12
 
 	// Here goes your code
-	fmt.Printf("...")
+	fmt.Printf("Hello, my name is %s with the age of %d and my weight is %g	\n",name,age,weight)
+	if (legal) {
+		fmt.Println("I am legal")
+	}else {
+		fmt.Println("I am not legal")
+	}
 }

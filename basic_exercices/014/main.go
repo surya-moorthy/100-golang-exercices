@@ -3,7 +3,7 @@
 // Store it in 2 variables called "name" and "surname"
 // After user has entered the data, print it out
 
-// Tip: https://pkg.go.dev/fmt#hdr-Scanning
+// Tip: https://pkg.go.dev/fmt#hdra-Scanning
 
 package main
 
@@ -11,5 +11,9 @@ import "fmt"
 
 func main () {
 	// Here goes your code
-	fmt.Printf("...")
+	var name string
+	var surname string
+	fmt.Println("enter your name and surname:")
+	fmt.Scanf("%s %s",&name,&surname)
+    fmt.Printf("Your name %s and your surname %s",name,surname)
 }

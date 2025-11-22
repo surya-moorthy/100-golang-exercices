@@ -15,5 +15,11 @@ func main () {
 	var number int
 	fmt.Scanln(&number)
 	// Here goes your code
-	
+	if number < 20 {
+		fmt.Println("too cold")
+	}else if number == 20 {
+		fmt.Println("perfect")
+	}else {
+		fmt.Println("too hot")
+	}
 }

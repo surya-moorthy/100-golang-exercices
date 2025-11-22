@@ -11,5 +11,7 @@ func main () {
 	init := 30
 	end  := 50
 	// Here goes your code
-	
+   for i := init; i <= end ; i++ {
+	fmt.Printf("%d \n",i)
+   }	
 }

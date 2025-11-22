@@ -10,5 +10,9 @@ func main () {
 	// initialized array of 10 int values [1..10]
 	var arr = [10]int{1,2,3,4,5,6,7,8,9,10}
 	// Here goes your code
+
+	for _,value := range arr {
+		fmt.Println(value)
+	}
 	
 }
