@@ -13,7 +13,7 @@ func doSomething(ctx context.Context) {
 	deadline := time.Now().Add(1500 * time.Millisecond)
 	// Repeat the same operation for cancelling the context, but this time instead of WithCancel() we will use WithDeadline(a,b) the a argument will be the parent context ctx
 	// and the b argument will be the deadline above (1,5 seconds in this case)
-   ctx , cancelCtx := context.WithDeadline(ctx,deadline)
+   ctx , cancelCtx := context.WithDeadline	(ctx,deadline)
 	// defer cancelCtx when time has passed
    defer cancelCtx()
 	// Make a new unbuffered channel of integers and assign it to printCh
