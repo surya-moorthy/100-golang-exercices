@@ -11,7 +11,7 @@ import (
 func doSomething(ctx context.Context) {
 	// Repeat the same operation for cancelling the context, but this time instead of WithDeadline(a,b) we will use WithTimeout(ctx,time.Time)
 	// We will assign it a time of 1,5 seconds
-	
+	ctx , cancelCtx := context.WithTimeout(ctx,1500*time.Millisecond)
 	// defer cancelCtx when time has passed
 	defer cancelCtx()
 	// Make a new unbuffered channel of integers and assign it to printCh

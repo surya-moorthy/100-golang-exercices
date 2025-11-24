@@ -13,9 +13,9 @@ func doSomething(ctx context.Context) {
 	deadline := time.Now().Add(1500 * time.Millisecond)
 	// Repeat the same operation for cancelling the context, but this time instead of WithCancel() we will use WithDeadline(a,b) the a argument will be the parent context ctx
 	// and the b argument will be the deadline above (1,5 seconds in this case)
-
+   ctx , cancelCtx := context.WithDeadline(ctx,deadline)
 	// defer cancelCtx when time has passed
-
+   defer cancelCtx()
 	// Make a new unbuffered channel of integers and assign it to printCh
 	printCh := make(chan int)
 	// call the doAnother function as goroutine
@@ -25,13 +25,14 @@ func doSomething(ctx context.Context) {
 	for num := 1; num <= 3; num++ {
 		select {
 			// case 1 (receive a number to printCh channel)
-
+		case printCh <- num:
 				// then sleep for a second
-
+				fmt.Println(num)
+            time.Sleep(1 * time.Second)
 			// case 2 (received ctx.done())
-
+        case <-ctx.Done() :
+			  return
 				// break
-
 		}
 	}
 

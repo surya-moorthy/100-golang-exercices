@@ -16,7 +16,7 @@ func doSomething(ctx context.Context) {
 	anotherCtx := context.WithValue(ctx,"Name","Mary")
 	doAnother(anotherCtx)
 	// Add another print statement to show the ctx.Value for your key again, does it change?
-	
+	fmt.Println("doSomething: Name's value is", ctx.Value("Name"))
 }
 
 func main() {
