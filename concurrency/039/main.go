@@ -19,7 +19,10 @@ import "fmt"
 import "time"
 
 func name(c chan string, name string){
-	
+	for {
+		c <- name 
+	    time.Sleep(2 * time.Second)
+	}
 }
 
 func main () {
@@ -27,9 +30,18 @@ func main () {
 	var c2 chan string = make(chan string)
 	var c3 chan string = make(chan string)
 
+	go name(c1,"name 1")
+	go name(c2,"name 2")
+	go name(c3,"name 3")
+
 	for {
 		select {
-		
+		   case name := <-c1:
+			   fmt.Println(name) 
+		   case name := <-c2:
+			   fmt.Println(name)
+		   case name := <-c3:
+			   fmt.Println(name)
 		}
 	}
 	fmt.Println("Goroutines finished.") // You shouldn't see this message as the goroutines run forever!

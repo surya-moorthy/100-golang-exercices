@@ -8,7 +8,13 @@ package main
 
 import "fmt"
 
+func send(ch chan<- string) {
+	ch <- "sending..."
+}
+
+
 func main () {
 	var c chan string = make(chan string, 1)
-	
+	go send(c)
+	fmt.Print(<-c)
 }

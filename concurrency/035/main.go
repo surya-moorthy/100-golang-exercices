@@ -5,8 +5,10 @@
 
 package main
 
-import "fmt"
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 func task(done chan bool) {
     fmt.Print("running...")
@@ -21,5 +23,5 @@ func main () {
 	go task(done)
 
 	// Your code goes here
-	
+   <- done
 }

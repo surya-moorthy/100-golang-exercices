@@ -13,7 +13,8 @@ import "time"
 
 func timeout(c chan string){
 	for {
-		
+		time.Sleep(10 * time.Second)
+		c <- "10 Seconds have passed"
 	}
 }
 
@@ -23,7 +24,11 @@ func main () {
 	go timeout(c1)
 	for {
 		select {
-		
+		case msg := <-c1:
+			 fmt.Println(msg)
+		case <- time.After(3 * time.Second):
+		     time.After(3 * time.Second)
+			 fmt.Println("Timeout!!!")
 		}
 	}
 	fmt.Println("Goroutines finished.") // You shouldn't see this message as the goroutines run forever!

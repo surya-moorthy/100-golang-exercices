@@ -8,7 +8,26 @@ package main
 
 import "fmt"
 
+func main() {
+	c := make(chan string)
 
-func main () {
-	
+	go func() {
+        c <- "string 1"
+	    c <- "string 2"
+			close(c)
+	}()
+
+	msg1, ok := <-c
+
+	if ok {
+		fmt.Println(msg1)
+	}
+
+
+
+	msg2, yes := <-c
+
+	if yes {
+		fmt.Println(msg2)
+	}
 }

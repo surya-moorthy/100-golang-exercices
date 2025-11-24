@@ -11,13 +11,21 @@ package main
 import "fmt"
 import "time"
 
+
 func second(c chan int){
 	
+	for {
+		c <- time.Now().Second()
+	    time.Sleep(1 * time.Second)
+	}
 }
 
 func main () {
 	var c chan int = make(chan int)
 	go second(c)
-	
+
+	for num := range c {
+		fmt.Println(num)
+	} 
 	
 }

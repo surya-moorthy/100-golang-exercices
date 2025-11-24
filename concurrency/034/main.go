@@ -17,6 +17,15 @@ func pop_message (c chan string){
 }
 func main () {
 	// Your code goes here
+    c := make(chan string,4)
+	c <- "first"
+	c <- "second"
+	c <- "third"
+	c <- "fourth"
+	go pop_message(c)
+	go pop_message(c) 
+	go pop_message(c)
+	go pop_message(c)
 
 
 	// this sleep is in order to not exit the program sooner than the routine lifetime :)
